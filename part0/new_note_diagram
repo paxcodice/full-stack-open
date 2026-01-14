@@ -1,0 +1,12 @@
+sequenceDiagram
+  participant browser
+  participant server
+
+  Note right of browser: User writesnote clicks save
+
+  browser->>sevrver: POST /new_not with note content
+  activate server
+  server-->>browser: 201 Created (or success response)
+  deactivate server
+
+  Note right of browser: Browser updates the UI with the new note
