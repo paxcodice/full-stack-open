@@ -27,12 +27,3 @@ sequenceDiagram
     deactivate server
 
     Note right of browser: Browser renders notes dynamically
-
-    Note right of browser: User writes a new note and clicks Save
-
-    browser->>server: POST /api/notes with new note
-    activate server
-    server-->>browser: new note confirmation
-    deactivate server
-
-    Note right of browser: JS updates the DOM to show the new note without reloading the page
