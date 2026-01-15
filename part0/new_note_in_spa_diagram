@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: User types a new note and clicks Save
+
+    browser->>server: POST /api/notes with new note content
+    activate server
+    server-->>browser: 201 Created (or new note JSON)
+    deactivate server
+
+    Note right of browser: Browser updates the DOM to show the new note without reloading the page
