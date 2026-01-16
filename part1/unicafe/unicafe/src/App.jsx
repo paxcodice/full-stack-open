@@ -17,6 +17,14 @@ const Statistics = (props) => {
 	);
 };
 
+const StatisticLine = (props) => {
+	return (
+		<p>
+			{props.text} {props.value} {props.unit}
+		</p>
+	);
+};
+
 const App = () => {
 	const [good, setGood] = useState(0);
 	const [neutral, setNeutral] = useState(0);
@@ -34,14 +42,14 @@ const App = () => {
 			<Button onClick={() => setBad(bad + 1)} text={'bad'} />
 			<h1>statistics</h1>
 			{total > 0 ? (
-				<Statistics
-					good={good}
-					neutral={neutral}
-					bad={bad}
-					all={total}
-					average={average}
-					positive={positive}
-				/>
+				<>
+					<StatisticLine text="good" value={good} />
+					<StatisticLine text="neutral" value={neutral} />
+					<StatisticLine text="bad" value={bad} />
+					<StatisticLine text="all" value={total} />
+					<StatisticLine text="average" value={average} />
+					<StatisticLine text="positive" value={positive} unit="%" />
+				</>
 			) : (
 				'No feedback given'
 			)}
