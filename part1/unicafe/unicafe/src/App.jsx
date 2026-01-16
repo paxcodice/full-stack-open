@@ -7,7 +7,6 @@ const Button = (props) => {
 const Statistics = (props) => {
 	return (
 		<>
-			<h1>statistics</h1>
 			<p>good {props.good}</p>
 			<p>neutral {props.neutral}</p>
 			<p>bad {props.bad}</p>
@@ -33,14 +32,19 @@ const App = () => {
 			<Button onClick={() => setGood(good + 1)} text={'good'} />
 			<Button onClick={() => setNeutral(neutral + 1)} text={'neutral'} />
 			<Button onClick={() => setBad(bad + 1)} text={'bad'} />
-			<Statistics
-				good={good}
-				neutral={neutral}
-				bad={bad}
-				all={total}
-				average={average}
-				positive={positive}
-			/>
+			<h1>statistics</h1>
+			{total > 0 ? (
+				<Statistics
+					good={good}
+					neutral={neutral}
+					bad={bad}
+					all={total}
+					average={average}
+					positive={positive}
+				/>
+			) : (
+				'No feedback given'
+			)}
 		</div>
 	);
 };
