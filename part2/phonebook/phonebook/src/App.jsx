@@ -9,6 +9,7 @@ const App = () => {
   ]);
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
+  const [searchName, setSearchName] = useState('');
 
   const addPerson = (event) => {
     event.preventDefault();
@@ -30,10 +31,24 @@ const App = () => {
     setNewNumber(event.target.value);
   };
 
+  // SEARCH FUNCTION
+  const handleSearchName = (event) => {
+    setSearchName(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const filteredList = persons.filter((person) => {
+    return person.name.toLowerCase().includes(searchName.toLowerCase());
+  });
+
   return (
     <div>
       <h2>Phonebook</h2>
-
+      <div>
+        filter shown with
+        <input value={searchName} onChange={handleSearchName} />
+        <h2>add a new</h2>
+      </div>
       <form onSubmit={addPerson}>
         <div>
           name:{' '}
@@ -50,7 +65,7 @@ const App = () => {
       </form>
       <h2>Numbers</h2>
       <div>
-        {persons.map((person) => {
+        {filteredList.map((person) => {
           return (
             <div key={person.name}>
               {person.name} {person.number}
