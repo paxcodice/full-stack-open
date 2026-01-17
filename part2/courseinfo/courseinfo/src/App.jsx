@@ -14,6 +14,7 @@ const Part = (props) => (
   </p>
 );
 
+// I instinctively used reduce in the previous exercise lol
 const Total = (props) => {
   const sum = props.parts.reduce((acc, cur) => acc + cur.exercises, 0);
   return (
