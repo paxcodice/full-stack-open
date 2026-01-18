@@ -49,6 +49,18 @@ const App = () => {
     console.log(event.target.value);
   };
 
+  // DELETE PERSON
+  const handleDeletePerson = (id) => {
+    const person = persons.find((p) => p.id === id);
+    const result = window.confirm(`Delete ${person.name}?`);
+
+    if (result) {
+      personService.deletePerson(id).then(() => {
+        setPersons(persons.filter((p) => p.id !== id));
+      });
+    }
+  };
+
   const filteredList = persons.filter((person) => {
     return person.name.toLowerCase().includes(searchName.toLowerCase());
   });
@@ -67,7 +79,7 @@ const App = () => {
         handleNewNumber={handleNewNumber}
       />
       <h2>Numbers</h2>
-      <Persons list={filteredList} />
+      <Persons list={filteredList} handleDeletePerson={handleDeletePerson} />
     </div>
   );
 };

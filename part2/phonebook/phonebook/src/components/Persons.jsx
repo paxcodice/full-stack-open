@@ -5,6 +5,9 @@ const Persons = (props) => {
         return (
           <div key={person.name}>
             {person.name} {person.number}
+            <button onClick={() => props.handleDeletePerson(person.id)}>
+              delete
+            </button>
           </div>
         );
       })}
