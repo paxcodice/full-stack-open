@@ -41,7 +41,20 @@ const App = () => {
             );
             setNewName('');
             setNewNumber('');
-            setMessage(`${person.name}'s number has been changed`);
+            setMessage({
+              text: `${person.name}'s number has been changed`,
+              type: 'success',
+            });
+            setTimeout(() => {
+              setMessage(null);
+            }, 3000);
+          })
+          .catch((error) => {
+            setMessage({
+              text: `Information of ${person.name} has already been removed from server`,
+              type: 'error',
+            });
+            setPersons(persons.filter((p) => p.id !== person.id));
             setTimeout(() => {
               setMessage(null);
             }, 3000);
@@ -57,7 +70,7 @@ const App = () => {
         setPersons(persons.concat(returnedPerson));
         setNewName('');
         setNewNumber('');
-        setMessage(`Added ${newName}`);
+        setMessage({ text: `Added ${newName}`, type: 'success' });
         setTimeout(() => {
           setMessage(null);
         }, 3000);
@@ -87,7 +100,10 @@ const App = () => {
     if (result) {
       personService.deletePerson(id).then(() => {
         setPersons(persons.filter((p) => p.id !== id));
-        setMessage(`${person.name} has been deleted`);
+        setMessage({
+          text: `${person.name} has been deleted`,
+          type: 'success',
+        });
         setTimeout(() => {
           setMessage(null);
         }, 3000);
