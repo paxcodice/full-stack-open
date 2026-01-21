@@ -1,0 +1,43 @@
+fullstackopen/
+├─ part0/
+│  └─ fundamentals/
+├─ part1/
+│  ├─ courseinfo/
+│  ├─ unicafe/
+│  └─ anecdotes/
+├─ part2/
+│  ├─ courseinfo/
+│  ├─ phonebook/
+│  └─ countries/
+├─ part3/
+│  └─ phonebook-backend/
+├─ part4/
+│  └─ bloglist-backend/
+├─ part5/
+│  └─ bloglist-frontend/
+├─ part6/
+│  └─ redux-anecdotes/
+├─ part7/
+│  ├─ routed-anecdotes/
+│  └─ bloglist/
+├─ part8/
+│  └─ graphql-library/
+├─ part9/
+│  └─ patientor/
+├─ part10/
+│  └─ rate-repository-app/
+├─ part11/
+│  └─ cicd-pipeline/
+├─ part12/
+│  └─ containers/
+├─ part13/
+│  └─ relational-databases/
+├─ .gitignore
+└─ README.md
+
+cd fullstackopen
+mkdir partX
+cd partX
+mkdir exercise-name
+cd exercise-name
+npm init -y   # or npm create vite@latest .
